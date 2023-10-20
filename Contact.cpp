@@ -22,34 +22,18 @@ private:
         strcpy_s(dest, strlen(other) + 1, other);
     }
 public:
-    Contact() {
-        strCopy(this->fullName, "no name");
-        strCopy(this->homePhone, "no home phone");
-        strCopy(this->workPhone, "no work phone");
-        strCopy(this->mobilePhone, "no mobile phone");
-        strCopy(this->additionalInfo, "no additional info");
-    }
-    Contact(const char* name, const char* mobilePhone) {
-        strCopy(this->fullName, name);
-        strCopy(this->homePhone, "no home phone");
-        strCopy(this->workPhone, "no work phone");
-        strCopy(this->mobilePhone, mobilePhone);
-        strCopy(this->additionalInfo, "no additional info");
-    }
-    Contact(const char* name, const char* mobilePhone, const char* workPhone) {
-        strCopy(this->fullName, name);
-        strCopy(this->homePhone, "no home phone");
-        strCopy(this->workPhone, workPhone);
-        strCopy(this->mobilePhone, mobilePhone);
-        strCopy(this->additionalInfo, "no additional info");
-    }
-    Contact(const char* name, const char* mobilePhone, const char* workPhone, const char* homePhone) {
-        strCopy(this->fullName, name);
-        strCopy(this->homePhone, homePhone);
-        strCopy(this->workPhone, workPhone);
-        strCopy(this->mobilePhone, mobilePhone);
-        strCopy(this->additionalInfo, "no additional info");
-    }
+    Contact()
+        : Contact("no name", "no mobile phone", "no work phone", "no home phone", "no additional info") {}
+
+    Contact(const char* name, const char* mobilePhone)
+        : Contact(name, mobilePhone, "no work phone", "no home phone", "no additional info") {}
+
+    Contact(const char* name, const char* mobilePhone, const char* workPhone)
+        : Contact(name, mobilePhone, workPhone, "no home phone", "no additional info") {}
+
+    Contact(const char* name, const char* mobilePhone, const char* workPhone, const char* homePhone)
+        : Contact(name, mobilePhone, workPhone, homePhone, "no additional info") {}
+
     Contact(const char* name, const char* mobilePhone, const char* workPhone, const char* homePhone, const char* info) {
         strCopy(this->fullName, name);
         strCopy(this->homePhone, homePhone);
